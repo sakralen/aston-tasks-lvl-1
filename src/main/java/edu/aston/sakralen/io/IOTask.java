@@ -75,7 +75,7 @@ public class IOTask {
                 .map(line -> line.replaceAll("(?<!\")\\bpublic\\b(?!\")(?!\\s*class)", "private"))
                 .toList();
 
-        // StandardOpenOption.WRITE заменяет опции по умолчанию, разрешая писать в только в файл, созданный заранее.
+        // WRITE + TRUNCATE_EXISTING заменяют опции по умолчанию, разрешая писать в только в файл, созданный заранее.
         Files.write(Path.of(TASK_DIR, "Private.java"), withPrivate,
                 StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 
